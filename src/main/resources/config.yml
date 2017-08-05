@@ -1,0 +1,10 @@
+config: 1
+
+# Spigot Username
+username: ''
+
+# Spigot password
+password: ''
+
+# Spigot 2FA key if enabled
+2fakey: ''

@@ -1,0 +1,106 @@
+/* Override some defaults */
+html, body {
+	background-color: #eee;
+}
+body {
+	padding-top: 40px;
+}
+.container {
+	width: 500px;
+}
+.tool-msg{
+    display: inline-block;
+    width: 100%;
+}
+
+.container > .content {
+	background-color: #fff;
+	padding: 20px;
+	margin: 0 -20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+#logo {
+	width: 400px;
+	margin-left: 30px;
+	margin-right: auto;
+	height: 100px;
+	background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center; 
+	background-size: contain;
+	margin-bottom: 20px;
+}
+.tool-form {
+	margin-left: 65px;
+}
+
+legend {
+	margin-right: -50px;
+	font-weight: bold;
+	color: #404040;
+}
+@media (max-width: 770px) {
+	body, html {
+		background-color: white;
+		padding-top: 10px;
+	}
+	.container {
+		width: 100%;
+		padding: 20px;
+		margin: 0 -20px;
+		-webkit-border-radius: 0px 0px 0px 0px;
+		-moz-border-radius: 0px 0px 0px 0px;
+		border-radius: 0px 0px 0px 0px;
+		-webkit-box-shadow: 0 0px 0px rgba(0,0,0,0);
+		-moz-box-shadow: 0 0px 0px rgba(0,0,0,0);
+		box-shadow: 0 0px 0px rgba(0,0,0,0);
+	}
+	.container > .content {
+		background-color: #fff;
+		padding: 20px;
+		margin: 0 -20px;
+		-webkit-border-radius: 0px 0px 0px 0px;
+		-moz-border-radius: 0px 0px 0px 0px;
+		border-radius: 0px 0px 0px 0px;
+		-webkit-box-shadow: 0 0px 0px rgba(0,0,0,0);
+		-moz-box-shadow: 0 0px 0px rgba(0,0,0,0);
+		box-shadow: 0 0px 0px rgba(0,0,0,0);
+	}
+	.tool-form {
+		margin-left: 30px;
+	}
+	#logo {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		height: 100px;
+	}
+}
+@media (max-width: 400px) {
+	#logo {
+		height: 70px;
+	}
+	.container > .content {
+		margin-left: -25px;
+		margin-right: 10px;
+	}
+	.container{
+		padding: 0px;
+		margin: 0px;
+	}
+	.tool-form input[type="text"]{
+		height: 40px;
+		font-size: 18px;
+	}
+	.tool-form .btn{
+		height: 48px;
+		font-size: 18px;
+		width: 100%;
+	}
+}
