@@ -21,13 +21,17 @@ public class RequestController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView loginPage() {
         ModelAndView result = new ModelAndView("index");
+        SpigotSiteServer spigotSiteServer = ServiceLocator.getSpigotSiteServer();
+
         // Check if ready
-        if (ServiceLocator.getSpigotSiteServer().hasError()) {
-            result.addObject("error", 9);
+        if (spigotSiteServer.hasError()) {
+            // Unable to connect to spigot
+            result.addObject("error", 5);
             return result;
         }
-        if (!ServiceLocator.getSpigotSiteServer().isReady()) {
-            result.addObject("error", 8);
+        if (!spigotSiteServer.isReady()) {
+            // Still starting
+            result.addObject("error", 4);
             return result;
         }
         return result;

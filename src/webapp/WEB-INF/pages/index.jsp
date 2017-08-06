@@ -26,7 +26,9 @@
                 <div class='alert alert-danger tool-msg'>Spigot username not valid!</div>
             </c:when>
             <c:when test="${error == 2}">
-                <div class='alert alert-danger tool-msg'>Spigot username not found in any buyer list!<br>Keep in mind that this is only updated every 30 minutes!</div>
+                <div class='alert alert-danger tool-msg'>Spigot username not found in any buyer list!<br>Keep in mind
+                    that this is only updated every 30 minutes!
+                </div>
             </c:when>
             <c:when test="${error == 3}">
                 <div class='alert alert-danger tool-msg'>Spigot username can not be empty!</div>
@@ -35,12 +37,15 @@
                 <div class='alert alert-danger tool-msg'>The application is still starting ...</div>
             </c:when>
             <c:when test="${error == 5}">
-                <div class='alert alert-danger tool-msg'>The application was unable to connect to Spigot! Please contact Maximvdw!</div>
+                <div class='alert alert-danger tool-msg'>The application was unable to connect to Spigot! Please contact
+                    the owner of the site!
+                </div>
             </c:when>
         </c:choose>
 
         <c:if test="${success}">
-            <div class='alert alert-success tool-msg'>The user '<b>${username}</b>' is found in one or more plugin buyer lists<br>
+            <div class='alert alert-success tool-msg'>The user '<b>${username}</b>' is found in one or more plugin buyer
+                lists<br>
                 <c:forEach items="${plugins}" var="plugin">
                     <b>Plugin name: </b>${plugin}<br>
                 </c:forEach>
@@ -52,14 +57,15 @@
                 <form class="form-horizontal" role="form" action="./" method="post">
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" id="username" value="${inputUsername}"
+                            <input type="text" class="form-control" autocomplete="off" name="username" id="username"
+                                   value="${inputUsername}"
                                    placeholder="Spigot Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> Check buyer
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Check buyer
                             </button>
                             <button id="help" type="button" class="btn btn-default mobile-hide" data-container="body"
                                     data-toggle="popover" data-placement="right"
@@ -76,9 +82,33 @@
 
 <script src="js/1.11.2.jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-typeahead.min.js"></script>
 <script>
     $(function () {
         $("[data-toggle='popover']").popover();
+    });
+    $("#username").typeahead({
+        onSelect: function (item) {
+            console.log(item);
+        },
+        ajax: {
+            url: "api/user/fromName",
+            timeout: 500,
+            method: "get",
+            preDispatch: function (query) {
+                return {
+                    q: query
+                }
+            },
+            preProcess: function (data) {
+                if (data.success === false) {
+                    // Hide the list, there was some error
+                    return false;
+                }
+                // We good!
+                return data.matches;
+            }
+        }
     });
 </script>
 </body>

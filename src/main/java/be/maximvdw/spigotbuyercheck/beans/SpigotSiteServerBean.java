@@ -54,6 +54,12 @@ public class SpigotSiteServerBean implements SpigotSiteServer {
         String password = Configuration.getString("password");
         String totpSecret = Configuration.getString("2fakey");
 
+        if (username.equals("") || password.equals("")) {
+            logger.error("Not configured yet!");
+            setError(true);
+            return;
+        }
+
         logger.info("Logging in " + username + " ...");
         try {
             pluginAuthor = SpigotSite.getAPI().getUserManager()

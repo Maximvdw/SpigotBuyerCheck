@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="slm" transaction-type="JTA">
-        <jta-data-source>java:/slm</jta-data-source>
-
-        <properties>
-            <property name="hibernate.hbm2ddl.auto" value="none" />
-            <property name="hibernate.globally_quoted_identifier" value="true" />
-            <property name="hibernate.connection.autocommit" value="false" />
-            <property name="hibernate.show_sql" value="false"/>
-            <property name="hibernate.format_sql" value="false"/>
-            <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
-        </properties>
-
-        <class>be.maximvdw.spigotbuyercheck.models.License</class>
-    </persistence-unit>
 </persistence>
