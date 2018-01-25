@@ -52,7 +52,7 @@ public class APIController {
     @ResponseBody
     ResponseEntity<String> checkBuyer(
             @PathVariable("pluginName") String plugin,
-            @RequestParam(value = "user_id", required = false) int userId,
+            @RequestParam(value = "user_id", required = false) Integer userId,
             @RequestParam(value = "username", required = false) String username) throws ConnectionFailedException {
         SpigotSiteServer spigotSiteServer = ServiceLocator.getSpigotSiteServer();
 
@@ -75,7 +75,7 @@ public class APIController {
     public
     @ResponseBody
     ResponseEntity<String> boughtPlugins(
-            @RequestParam(value = "user_id", required = false) int userId,
+            @RequestParam(value = "user_id", required = false) Integer userId,
             @RequestParam(value = "username", required = false) String username) throws ConnectionFailedException {
         SpigotSiteServer spigotSiteServer = ServiceLocator.getSpigotSiteServer();
         JsonArrayBuilder pluginsArray = null;

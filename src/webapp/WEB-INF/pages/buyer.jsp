@@ -38,7 +38,7 @@
             <h3>${username}</h3>
 
             <c:forEach items="${plugins}" var="plugin">
-                <h4>${plugin.key}</h4>
+                <h4>${plugin.key.resourceName}</h4>
                 <c:if test="${plugin.value.purchasePrice > 0}">
                     <b>Purchase price: </b>${plugin.value.purchaseCurrency} ${plugin.value.purchasePrice}</br>
                 </c:if>
