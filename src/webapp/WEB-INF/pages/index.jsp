@@ -36,7 +36,7 @@
         </c:choose>
 
         <c:if test="${success}">
-            <div class='alert alert-success tool-msg'>The user '<a href="${userId}"><b>${username}</b></a>' is found in one or more plugin buyer
+            <div class='alert alert-success tool-msg'>The user '<a href="${userId}"><u><b>${username}</b></u></a>' is found in one or more plugin buyer
                 lists<br>
                 <c:forEach items="${plugins}" var="plugin">
                     <b>Plugin: </b>${plugin.key.resourceName}<br>
@@ -45,7 +45,7 @@
         </c:if>
         <div class="row">
             <div class="tool-form">
-                <form class="form-horizontal" role="form" action="./" method="post">
+                <form class="form-horizontal" role="form" action="./" method="get">
                     <div class="form-group">
                         <div class="col-sm-10">
                             <input type="text" class="form-control" autocomplete="off" name="username" id="username"

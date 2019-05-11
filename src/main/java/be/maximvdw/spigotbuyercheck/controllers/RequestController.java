@@ -57,7 +57,7 @@ public class RequestController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView loginPage() {
+    public ModelAndView homepage(@RequestParam(value = "username", required = false, defaultValue = "") String username) {
         ModelAndView result = new ModelAndView("index");
         SpigotSiteServer spigotSiteServer = ServiceLocator.getSpigotSiteServer();
 
@@ -76,32 +76,7 @@ public class RequestController {
             result.addObject("error", 4);
             return result;
         }
-        return result;
-    }
-
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public ModelAndView buyerCheckRequest(@RequestParam(value = "username", defaultValue = "") String username) {
-        ModelAndView result = new ModelAndView("index");
-        SpigotSiteServer spigotSiteServer = ServiceLocator.getSpigotSiteServer();
-
-        // Last sync
-        result.addObject("lastSync", spigotSiteServer.getLastSync() / 1000);
-        result.addObject("lastSyncFormatted", simpleDateFormat.format(new Date(spigotSiteServer.getLastSync())));
-
-        // Check if ready
-        if (spigotSiteServer.hasError()) {
-            // Unable to connect to spigot
-            result.addObject("error", 5);
-            return result;
-        }
-        if (!spigotSiteServer.isReady()) {
-            // Still starting
-            result.addObject("error", 4);
-            return result;
-        }
-
         if (username.equals("")) {
-            result.addObject("error", 3);
             return result;
         }
         result.addObject("inputUsername", username);
@@ -132,4 +107,5 @@ public class RequestController {
 
         return result;
     }
+
 }

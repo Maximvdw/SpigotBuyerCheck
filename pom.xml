@@ -145,12 +145,6 @@
             <version>0.3.2-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.gargoylesoftware</groupId>
-            <artifactId>HTMLUnit</artifactId>
-            <version>2.15</version>
-            <classifier>OSGi</classifier>
-        </dependency>
-        <dependency>
             <groupId>com.paypal.sdk</groupId>
             <artifactId>rest-api-sdk</artifactId>
             <version>LATEST</version>
